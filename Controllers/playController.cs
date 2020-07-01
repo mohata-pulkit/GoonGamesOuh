@@ -11,7 +11,7 @@ namespace GoonGamesOuh.Controllers
     {
         public ViewResult Question()
         {
-            play Question = new play() { Name = "Hello", Id = 1 };
+            play Question = new play() { Prompt = "Hello", Id = 5 };
             return View(Question);
         }
     }

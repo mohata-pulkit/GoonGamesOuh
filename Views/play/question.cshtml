@@ -6,9 +6,11 @@
     ViewBag.Title = "Question " + Model.Id;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>
-    Question @Model.Id
-</h2>
-<p>
-    @Model.Name
-</p>
+<div class="question-box">
+    <div class="question-number">
+        Question @Model.Id
+    </div>
+    <div class="question-prompt">
+        @Model.Prompt
+    </div>
+</div>

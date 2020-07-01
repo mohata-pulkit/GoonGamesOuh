@@ -54,11 +54,11 @@ body {
 .question-box {
 	position: center;
 	width: 400px;
-	background-color: darkslategray;
+	background-color: black;
 	border: 10px;
 	padding: 20px 20px 20px 20px;
 	border-color: gold;
-	color: #839496;
+	color: aquamarine;
 	font-family: Courier New, Courier, monospace;
 }
 .question-number {

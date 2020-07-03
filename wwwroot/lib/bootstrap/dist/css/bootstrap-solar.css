@@ -67,9 +67,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #839496;
+  color: black;
   text-align: left;
-  background-color: darkgray;
+  background-color: bisque;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

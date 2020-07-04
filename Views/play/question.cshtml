@@ -1,16 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model GoonGamesOuh.Models.play;
+﻿@model GoonGamesOuh.Models.play;
 @{
-    ViewBag.Title = "Question " + Model.Id;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Question " + Model.Id;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="question-box">
-    <div class="question-number">
-        Question @Model.Id
-    </div>
-    <div class="question-prompt">
-        @Model.Prompt
+	<div class="question-number">
+		Question @Model.Id
+	</div>
+	<div class="question-prompt">
+		@{ 
+			foreach (string prompt in Model.Prompt)
+			{
+				<p>
+					@prompt
+				</p>
+			}
+		}
+	</div>
+	<div class="answer-input">
+		@using (Html.BeginForm("QuestionChecked", "play", FormMethod.Post))
+		{
+			@Html.TextBoxFor(input => input.Answer)
+			<button type="submit">Submit</button>
+		}
+	</div>
+    <div class="answer-result">
+        @Model.ConfirmationMessage
     </div>
 </div>

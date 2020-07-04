@@ -11,11 +11,47 @@ namespace GoonGamesOuh.Controllers
 {
 	public class playController : Controller
 	{
+		public int id = 1;
 		public ViewResult Question()
 		{
-			int id = 1;
-			play Question = new play() { Prompt = QuestionReader.getQuestion(id).prompt, Id = id };
-			return View(Question);
+			string PromptUnarrayed = QuestionReader.getQuestion(id).prompt;
+			string[] promptArray = PromptUnarrayed.Split('\n');
+
+			play Solution = new play();
+
+			Solution.Prompt = promptArray;
+			Solution.Id = id;
+
+			return View(Solution);
+		}
+		[HttpPost]
+		public ActionResult QuestionChecked(play input)
+		{
+			play Solution = new play();
+
+			string answer = QuestionReader.getQuestion(id).answer;
+
+			Solution.Id = id;
+
+			string PromptUnarrayed = QuestionReader.getQuestion(id).prompt;
+			string[] promptArray = PromptUnarrayed.Split('\n');
+
+			Solution.Prompt = promptArray;
+
+			if (input.Answer == answer)
+			{
+				Solution.ConfirmationMessage = "Correct Answer :)";
+				return View("Question",Solution);
+			}
+			else if(input.Answer == null)
+			{
+				return View("Question", Solution);
+			}
+			else
+			{
+				Solution.ConfirmationMessage = "Incorrect Answer :(";
+				return View("Question", Solution);
+			}
 		}
 	}
 }

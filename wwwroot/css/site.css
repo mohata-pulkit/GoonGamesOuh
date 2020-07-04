@@ -69,3 +69,19 @@ body {
 	font-size: medium;
 	font-style: oblique;
 }
+p.correct-answer {
+	font-family: Courier New, Courier, monospace;
+	color: lime;
+	font-size: medium;
+	font-weight: bold;
+}
+p.incorrect-answer {
+	font-family: Courier New, Courier, monospace;
+	color: orangered;
+	font-size: medium;
+	font-weight: bold;
+}
+div.answer-result {
+	color: lime;
+	font-family: 'Computer Modern';
+}

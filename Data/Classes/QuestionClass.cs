@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LINQtoCSV;
 
-namespace GoonGamesOuh.Databases
+namespace GoonGamesOuh.Data
 {
 	public class QuestionClass
 	{

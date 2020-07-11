@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GoonGamesOuh.Models;
-using GoonGamesOuh.Databases;
-using GoonGamesOuh.Databases.Readers;
+using GoonGamesOuh.Data.Readers;
+using GoonGamesOuh.Data.Classes;
 
 namespace GoonGamesOuh.Controllers
 {
 	public class playController : Controller
 	{
-		public int id = 1;
+		public UserClass user = UserReader.getUser(1);
+		public int id = UserReader.getUser(1).CurrentQuestion;
 		public ViewResult Question()
 		{
 			string PromptUnarrayed = QuestionReader.getQuestion(id).prompt;

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GoonGamesOuh.Data.Classes;
 using LINQtoCSV;
 
-namespace GoonGamesOuh.Databases.Readers
+namespace GoonGamesOuh.Data.Readers
 {
 	public class QuestionReader
 	{

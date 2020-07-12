@@ -11,5 +11,6 @@ namespace GoonGamesOuh.Models
         public string[] Prompt { get; set; }
         public string Answer { get; set; }
         public string ConfirmationMessage { get; set; }
+        public string HelpfulComments { get; set; }
     }
 }

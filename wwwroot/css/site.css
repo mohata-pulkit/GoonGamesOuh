@@ -85,3 +85,9 @@ div.answer-result {
 	color: lime;
 	font-family: 'Computer Modern';
 }
+.leaderboard {
+	padding: 10px;
+	border: 2px double;
+	border-color: aquamarine;
+	background-color: black;
+}

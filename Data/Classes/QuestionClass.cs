@@ -14,5 +14,7 @@ namespace GoonGamesOuh.Data
 		public string prompt { get; set; }
 		[CsvColumn(Name = "Answer", FieldIndex = 3)]
 		public string answer { get; set; }
+		[CsvColumn(Name = "Comments", FieldIndex = 4)]
+		public string comments { get; set; }
 	}
 }

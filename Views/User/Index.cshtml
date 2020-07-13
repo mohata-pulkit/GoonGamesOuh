@@ -3,7 +3,7 @@
 *@
 @model GoonGamesOuh.Models.User;
 @{
-    ViewBag.Title = @"Sign Up / Login";
+    ViewBag.Title = @"Register / Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     <div>
@@ -29,4 +29,18 @@
             <br />
             <button type="submit">Submit</button>
         }
+        <hr />
+        @using (Html.BeginForm("Login", "User", FormMethod.Post))
+        {
+            <label>Email ID</label>
+            @Html.TextBoxFor(input => input.EmailID)
+            @Html.ValidationMessageFor(model => model.EmailID)
+            <br />
+            <label>Password</label>
+            @Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.Password)
+            <br />
+            <button type="submit">Submit</button>
+        }
+        @Model.ConfirmationMessage
     </div>

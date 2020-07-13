@@ -1,50 +1,52 @@
 ﻿@*
-	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewBag.Title = "Leaderboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model GoonGamesOuh.Models.Leaderboard
 
 <table style="border:1px; border-color:aqua; color:aquamarine; background-color:black" cellpadding="10">
-	<tr>
-		<th>
-			Position
-		</th>
-		<th>
-			First Name
-		</th>
-		<th>
-			Last Name
-		</th>
-		<th>
-			Current Question
-		</th>
-		<th>
-			Current Points
-		</th>
-	</tr>
-	@{ 
+    <tr>
+        <th>
+            Position
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Current Question
+        </th>
+        <th>
+            Current Points
+        </th>
+    </tr>
+    @{
 
         for (int i = 0; i < GoonGamesOuh.Data.Readers.UserReader.getMaxUsers(); i = i + 1)
         {
             int k = i + 1;
-			<tr>
-				<td>
-					@k
-				</td>
-				<td>
-					@Model.users[i].FirstName
-				</td>
-				<td>
-					@Model.users[i].LastName
-				</td>
-				<td>
-					@Model.users[i].CurrentQuestion
-				</td>
-				<td>
-					@Model.users[i].CurrentPoints
-				</td>
-			</tr>
-		}
-	}
+            <tr>
+                <td>
+                    @k
+                </td>
+                <td>
+                    @Model.users[i].FirstName
+                </td>
+                <td>
+                    @Model.users[i].LastName
+                </td>
+                <td>
+                    @Model.users[i].CurrentQuestion
+                </td>
+                <td>
+                    @Model.users[i].CurrentPoints
+                </td>
+            </tr>
+        }
+    }
 </table>

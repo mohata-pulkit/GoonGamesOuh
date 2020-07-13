@@ -8,7 +8,6 @@ namespace GoonGamesOuh.Models
 {
 	public class User
 	{
-		public int UserNumber { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		[Required(ErrorMessage = "Email ID is Required")]
@@ -20,7 +19,6 @@ namespace GoonGamesOuh.Models
 		public byte[] PasswordSalt { get; set; }
 		public string PasswordHash { get; set; }
 		public string IPAddress { get; set; }
-		public int CurrentQuestion { get; set; }
-		public int CurrentPoints { get; set; }
+		public string ConfirmationMessage { get; set; }
 	}
 }

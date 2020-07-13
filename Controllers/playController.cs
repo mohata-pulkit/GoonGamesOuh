@@ -6,19 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using GoonGamesOuh.Models;
 using GoonGamesOuh.Data.Readers;
 using GoonGamesOuh.Data.Classes;
+using Microsoft.AspNetCore.Http;
 
 namespace GoonGamesOuh.Controllers
 {
 	public class playController : Controller
 	{
-		public static play Solution = new play();
+		static play Solution = new play();
 
-		public UserClass user = UserReader.getUser(1);
+		public static UserClass user = new UserClass();
 
-		public int id = UserReader.getUser(1).CurrentQuestion;
+		public static int id = new Int32();
 
+		public static int UNumber = new Int32();
 		public ViewResult Question()
 		{
+			UNumber = Convert.ToInt32(HttpContext.Session.GetInt32("User Number"));
+
+			user = UserReader.getUser(UNumber);
+			id = user.CurrentQuestion;
+
 			string PromptUnarrayed = QuestionReader.getQuestion(id).prompt;
 			string[] promptArray = PromptUnarrayed.Split('\n');
 
@@ -36,7 +43,7 @@ namespace GoonGamesOuh.Controllers
 
 			if (input.Answer == answer)
 			{
-				UserWriter.nextQuestion(1);
+				UserWriter.nextQuestion(UNumber);
 				Solution.ConfirmationMessage = "Correct Answer :)";
 			}
 			else if(input.Answer == null)

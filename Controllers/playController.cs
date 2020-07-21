@@ -14,17 +14,28 @@ namespace GoonGamesOuh.Controllers
 	{
 		static play Solution = new play();
 
-		public static UserClass user = new UserClass();
+		static UserClass user = new UserClass();
 
-		public static int id = new Int32();
+		static int id = new int();
 
-		public static int UNumber = new Int32();
+		static int UNumber = new int();
+		public ActionResult Index()
+        {
+			return RedirectToAction("Question");
+        }
 		public ViewResult Question()
 		{
-			UNumber = Convert.ToInt32(HttpContext.Session.GetInt32("User Number"));
+			if (HttpContext.Session.GetInt32("User Number") != null)
+			{
+				UNumber = Convert.ToInt32(HttpContext.Session.GetInt32("User Number"));
 
-			user = UserReader.getUser(UNumber);
-			id = user.CurrentQuestion;
+				user = UserReader.getUser(UNumber);
+				id = user.CurrentQuestion;
+			}
+            else
+            {
+				id = 0;
+            }
 
 			string PromptUnarrayed = QuestionReader.getQuestion(id).prompt;
 			string[] promptArray = PromptUnarrayed.Split('\n');

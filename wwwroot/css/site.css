@@ -1,7 +1,34 @@
-﻿a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿:root{
+	font-size: 16px;
+	--text-primary: #b6b6b6;
+	--text-secondary: #ececec;
+	--bg-primary: #23232e;
+	--bg-secondary: #141418;
+}
+body {
+	background-color: #05101A;
+	color: #f8dfa1;
+	margin: 0;
+	padding: 0;
+}
+body::-webkit-scrollbar{
+	width: 0.25rem;
+}
+body::-webkit-scrollbar-track{
+	background:#ABCDEF;
+}
+body::-webkit-scrollbar-thumb{
+	background:#123456;
+}
+.navbar-nav{
+	font-size:larger;
+	list-style:none;
+	padding:10px;
+	margin:10px;
+	display:flex;
+}
+.navbar-brand {
+	margin-right:auto;
 }
 a {
   color: #0366d6;
@@ -59,31 +86,19 @@ body {
 	padding: 20px 20px 20px 20px;
 	border-color: gold;
 	color: aquamarine;
-	font-family: Courier New, Courier, monospace;
+	font-family: Consolas;
 }
 .question-number {
-	font-size: larger;
+	font-size: x-large;
 	font-weight: bold;
 }
 .question-prompt{
 	font-size: medium;
-	font-style: oblique;
-}
-p.correct-answer {
-	font-family: Courier New, Courier, monospace;
-	color: lime;
-	font-size: medium;
-	font-weight: bold;
-}
-p.incorrect-answer {
-	font-family: Courier New, Courier, monospace;
-	color: orangered;
-	font-size: medium;
-	font-weight: bold;
+	font-family:'Lucida Console';
 }
 div.answer-result {
 	color: lime;
-	font-family: 'Computer Modern';
+	font-family: Consolas;
 }
 .leaderboard {
 	padding: 10px;

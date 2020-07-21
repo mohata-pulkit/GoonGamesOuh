@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GoonGamesOuh.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace GoonGamesOuh.Controllers
 {
@@ -20,7 +21,9 @@ namespace GoonGamesOuh.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Home home = new Home();
+            home.Name = HttpContext.Session.GetString("Name");
+            return View(home);
         }
 
         public IActionResult Privacy()

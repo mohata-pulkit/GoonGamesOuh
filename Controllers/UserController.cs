@@ -112,9 +112,11 @@ namespace GoonGamesOuh.Controllers
                     {
 						myUser.ConfirmationMessage = "Successfully Logged In. You may now continue to the questions";
 						HttpContext.Session.SetInt32("User Number", n.UserNumber);
+						HttpContext.Session.SetString("Name", n.FirstName + " " + n.LastName);
+
 						n.IPAddress = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList.GetValue(1).ToString();
 
-						return RedirectToAction("Index");
+						return RedirectToAction("Index","Home");
 					}
                 }
 				myUser.ConfirmationMessage = "Could not find a User with these credentials. Try registering on the site";

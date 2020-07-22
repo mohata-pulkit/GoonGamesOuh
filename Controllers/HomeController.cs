@@ -25,12 +25,6 @@ namespace GoonGamesOuh.Controllers
             home.Name = HttpContext.Session.GetString("Name");
             return View(home);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

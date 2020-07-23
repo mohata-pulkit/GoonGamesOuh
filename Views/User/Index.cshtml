@@ -1,46 +1,70 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model GoonGamesOuh.Models.User;
 @{
-    ViewBag.Title = @"Register / Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = @"Register / Login";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div>
-        @using (Html.BeginForm("Register", "User", FormMethod.Post))
-        {
-            <label>First Name</label>
-            @Html.TextBoxFor(input => input.FirstName)
-            <br />
-            <label>Last Name</label>
-            @Html.TextBoxFor(input => input.LastName)
-            <br />
-            <label>Email ID</label>
-            @Html.TextBoxFor(input => input.EmailID)
-            @Html.ValidationMessageFor(model => model.EmailID)
-            <br />
-            <label>Discord Username</label>
-            @Html.TextBoxFor(input => input.DiscordUsername)
-            @Html.ValidationMessageFor(model => model.DiscordUsername)
-            <br />
-            <label>Password</label>
-            @Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
-            @Html.ValidationMessageFor(model => model.Password)
-            <br />
-            <button type="submit">Submit</button>
-        }
-        <hr />
-        @using (Html.BeginForm("Login", "User", FormMethod.Post))
-        {
-            <label>Email ID</label>
-            @Html.TextBoxFor(input => input.EmailID)
-            @Html.ValidationMessageFor(model => model.EmailID)
-            <br />
-            <label>Password</label>
-            @Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
-            @Html.ValidationMessageFor(model => model.Password)
-            <br />
-            <button type="submit">Submit</button>
-        }
-        @Model.ConfirmationMessage
-    </div>
+	<div class="digital-screen">
+		<div class="register">
+			<p class="user-heading">
+				REGISTER
+			</p>
+			@using (Html.BeginForm("Register", "User", FormMethod.Post))
+			{
+				<table class="register-form">
+					<tr class="register-form">
+						<td class="register-form">First Name</td>
+						<td class="register-form">@Html.TextBoxFor(input => input.FirstName)</td>
+					</tr>
+					<tr class="register-form">
+						<td class="register-form">Last Name</td>
+						<td class="register-form">@Html.TextBoxFor(input => input.LastName)</td>
+					</tr>
+					<tr class="register-form">
+						<td class="register-form">Email ID</td>
+						<td class="register-form">@Html.TextBoxFor(input => input.EmailID)
+					</tr>
+					<tr class="register-form">
+						<td class="register-form">Discord Username</td>
+						<td class="register-form">@Html.TextBoxFor(input => input.DiscordUsername)</td>
+					</tr>
+					<tr class="register-form">
+						<td class="register-form">Password</td>
+						<td class="register-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+					</tr>
+					<tr class="register-form">
+						<td class="register-form">
+							<button type="submit">Submit</button>
+						</td>
+					</tr>
+				</table>
+			}
+		</div>
+		<hr class="dashed-double" />
+		<div class="login">
+			<p class="user-heading">
+				LOGIN
+			</p>
+			@using (Html.BeginForm("Login", "User", FormMethod.Post))
+			{
+				<table class="login-form">
+                    <tr class="login-form">
+                        <td class="login-form">Email ID</td>
+                        <td class="login-form">@Html.TextBoxFor(input => input.EmailID)</td>
+                    </tr>
+                    <tr class="login-form">
+                        <td class="login-form">Password</td>
+                        <td class="login-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+                    </tr>
+                    <tr class="login-form">
+                        <td class="login-form">
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+				</table>
+			}
+			@Model.ConfirmationMessage
+		</div>
+	</div>

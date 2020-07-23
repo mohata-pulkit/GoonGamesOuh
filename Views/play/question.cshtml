@@ -3,7 +3,7 @@
 	ViewBag.Title = "Question " + Model.Id;
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="question-box">
+<div class="digital-screen">
 	<div class="question-number">
 		Question @Model.Id
 	</div>
@@ -11,7 +11,7 @@
 		@{ 
 			foreach (string prompt in Model.Prompt)
 			{
-				<p>
+				<p class="question-prompt">
 					@prompt
 				</p>
 			}

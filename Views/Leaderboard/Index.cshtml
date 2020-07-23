@@ -7,21 +7,18 @@
 }
 @model GoonGamesOuh.Models.Leaderboard
 
-<table style="border:1px; border-color:aqua; color:aquamarine; background-color:black" cellpadding="10">
+<table class="digital-screen">
     <tr>
-        <th>
+        <th class="leaderboard">
             Position
         </th>
-        <th>
-            First Name
+        <th class="leaderboard">
+            Name
         </th>
-        <th>
-            Last Name
-        </th>
-        <th>
+        <th class="leaderboard">
             Current Question
         </th>
-        <th>
+        <th class="leaderboard">
             Current Points
         </th>
     </tr>
@@ -31,19 +28,16 @@
         {
             int k = i + 1;
             <tr>
-                <td>
+                <td class="leaderboard">
                     @k
                 </td>
-                <td>
-                    @Model.users[i].FirstName
+                <td class="leaderboard">
+                    @Model.users[i].FirstName @Model.users[i].LastName
                 </td>
-                <td>
-                    @Model.users[i].LastName
-                </td>
-                <td>
+                <td class="leaderboard">
                     @Model.users[i].CurrentQuestion
                 </td>
-                <td>
+                <td class="leaderboard">
                     @Model.users[i].CurrentPoints
                 </td>
             </tr>

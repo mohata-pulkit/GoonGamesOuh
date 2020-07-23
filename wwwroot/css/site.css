@@ -113,16 +113,22 @@ p.question-prompt{
 }
 .answer-result {
 	color: lime;
-	font-family: Consolas;
+	font-family: 'Fira Sans', sans-serif;
 }
 p.user-heading {
 	font-size: x-large;
 	font-weight: bold;
 }
+th.leaderboard{
+	font-size:large;
+	font-weight:bold;
+}
 th.leaderboard, td.leaderboard {
 	padding: 10px;
-	border: 1px dashed;
+	border: 1px solid;
 	border-color: aquamarine;
+	border-collapse: collapse;
+	font-family:'Lucida Console';
 }
 th.register-form, td.register-form {
 	padding: 10px;

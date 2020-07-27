@@ -80,7 +80,7 @@ hr {
 	padding: 10px;
 	color: aquamarine;
 	text-align: center;
-	font-family: Consolas;
+	font-family: 'Fira Code', monospace;
 	border: 10px solid;
 	border-color: #78512D;
 	background-color: black;
@@ -92,13 +92,13 @@ input {
 	border-bottom: dotted 1px aquamarine;
 	background-color:black;
 	color:aquamarine;
-	font-family:Consolas;
+	font-family: 'Fira Code', monospace;
 }
 button{
 	border:dashed 1px aquamarine;
 	background-color:black;
 	color:aquamarine;
-	font-family:Consolas;
+	font-family: 'Fira Code', monospace;
 }
 .question-number {
 	font-size: x-large;
@@ -106,7 +106,6 @@ button{
 }
 .question-prompt{
 	font-size: medium;
-	font-family:'Lucida Console';
 }
 p.question-prompt{
 	word-wrap:break-word;
@@ -128,7 +127,7 @@ th.leaderboard, td.leaderboard {
 	border: 1px solid;
 	border-color: aquamarine;
 	border-collapse: collapse;
-	font-family:'Lucida Console';
+	font-family: 'Fira Code', monospace;
 }
 th.register-form, td.register-form {
 	padding: 10px;

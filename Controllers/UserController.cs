@@ -20,6 +20,15 @@ namespace GoonGamesOuh.Controllers
 		public static User myUser = new User();
 		public ViewResult Index()
 		{
+			if (HttpContext.Session.GetString("User Number") == null)
+			{
+				myUser.LoginStatus = false;
+				myUser.ConfirmationMessage = "";
+			}
+			else
+			{
+				myUser.LoginStatus = true;
+			}
 			return View(myUser);
 		}
 		[HttpPost]
@@ -31,16 +40,16 @@ namespace GoonGamesOuh.Controllers
 				return RedirectToAction("Index");
 			}
 			else
-            {
+			{
 				foreach(UserClass n in UserReader.getAllUsersSorted())
-                {
-                    if (user.EmailID == n.EmailID || user.DiscordUsername == n.DiscordUsername)
-                    {
+				{
+					if (user.EmailID == n.EmailID || user.DiscordUsername == n.DiscordUsername)
+					{
 						myUser.ConfirmationMessage = "An account with these details is already registered";
 						return RedirectToAction("Index");
-                    }
-                }
-            }
+					}
+				}
+			}
 			{
 				byte[] salt = new byte[128 / 8];
 				using (var rng = RandomNumberGenerator.Create())
@@ -80,28 +89,28 @@ namespace GoonGamesOuh.Controllers
 		}
 		[HttpPost]
 		public ActionResult Login(User user)
-        {
+		{
 			if(user.Password == null || user.EmailID == null)
-            {
+			{
 				myUser.ConfirmationMessage = "Please Enter Valid Credentials";
 				return RedirectToAction("Index");
-            }
-            else
-            {
+			}
+			else
+			{
 				foreach(UserClass n in UserReader.getAllUsersSorted())
-                {
+				{
 					string[] decodeSaltString = n.PasswordSalt.Split('-');
 					List<int> decodeSaltInt = new List<int>();
 					foreach(string hex in decodeSaltString)
-                    {
+					{
 						int intValue = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
 						decodeSaltInt.Add(intValue);
 					}
 					byte[] decodeSalt = new byte[128 / 8];
 					for(int i = 0; i < decodeSaltInt.Count; i++)
-                    {
+					{
 						decodeSalt[i] = Convert.ToByte(decodeSaltInt[i]);
-                    }
+					}
 					string password = Convert.ToBase64String(KeyDerivation.Pbkdf2(
 					password: user.Password,
 					salt: decodeSalt,
@@ -109,7 +118,7 @@ namespace GoonGamesOuh.Controllers
 					iterationCount: 10000,
 					numBytesRequested: 256 / 8));
 					if (user.EmailID == n.EmailID && password == n.PasswordHash)
-                    {
+					{
 						myUser.ConfirmationMessage = "Successfully Logged In. You may now continue to the questions";
 						HttpContext.Session.SetInt32("User Number", n.UserNumber);
 						HttpContext.Session.SetString("Name", n.FirstName + " " + n.LastName);
@@ -118,10 +127,17 @@ namespace GoonGamesOuh.Controllers
 
 						return RedirectToAction("Index","Home");
 					}
-                }
+				}
 				myUser.ConfirmationMessage = "Could not find a User with these credentials. Try registering on the site";
 				return RedirectToAction("Index");
-            }
-        }
+			}
+		}
+		public RedirectToActionResult Logout()
+		{
+			HttpContext.Session.Remove("User Number");
+			HttpContext.Session.Remove("Name");
+
+			return RedirectToAction("Index", "Home");
+		}
 	}
 }

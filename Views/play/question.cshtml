@@ -1,7 +1,14 @@
 ﻿@model GoonGamesOuh.Models.play;
 @{
-	ViewBag.Title = "Question " + Model.Id;
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Question " + Model.Id;
+	if (Model.LoginStatus)
+	{
+		ViewData["LoginStatus"] = "Logout";
+	}
+	else
+	{
+		ViewData["LoginStatus"] = "Login/Register";
+	}
 }
 <div class="digital-screen">
 	<div class="question-number">
@@ -12,7 +19,7 @@
 			foreach (string prompt in Model.Prompt)
 			{
 				<p class="question-prompt">
-					@prompt
+					@Html.Raw(prompt)
 				</p>
 			}
 		}

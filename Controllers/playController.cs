@@ -45,6 +45,15 @@ namespace GoonGamesOuh.Controllers
 
 			Solution.HelpfulComments = QuestionReader.getQuestion(id).comments;
 
+			if (HttpContext.Session.GetString("User Number") == null)
+			{
+				Solution.LoginStatus = false;
+			}
+			else
+			{
+				Solution.LoginStatus = true;
+			}
+
 			return View(Solution);
 		}
 		[HttpPost]

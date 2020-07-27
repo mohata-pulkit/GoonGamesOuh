@@ -1,5 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    if (Model.LoginStatus)
+    {
+        ViewData["LoginStatus"] = "Logout";
+    }
+    else
+    {
+        ViewData["LoginStatus"] = "Login/Register";
+    }
 }
 @model GoonGamesOuh.Models.Home
 <div class="main-title">

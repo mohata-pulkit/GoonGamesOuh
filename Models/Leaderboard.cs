@@ -9,5 +9,6 @@ namespace GoonGamesOuh.Models
     public class Leaderboard
     {
         public List<UserClass> users { get; set; }
+        public bool LoginStatus { get; set; }
     }
 }

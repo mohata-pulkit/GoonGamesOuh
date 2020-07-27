@@ -12,23 +12,19 @@ namespace GoonGamesOuh.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+        public ViewResult Index()
         {
             Home home = new Home();
             home.Name = HttpContext.Session.GetString("Name");
+            if (HttpContext.Session.GetString("User Number") == null)
+            {
+                home.LoginStatus = false;
+            }
+            else
+            {
+                home.LoginStatus = true;
+            }
             return View(home);
-        }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

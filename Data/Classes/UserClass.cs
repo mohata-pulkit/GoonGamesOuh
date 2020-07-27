@@ -6,8 +6,8 @@ using LINQtoCSV;
 
 namespace GoonGamesOuh.Data.Classes
 {
-    public class UserClass
-    {
+	public class UserClass
+	{
 		[CsvColumn(Name = "User Number", FieldIndex = 1)]
 		public int UserNumber { get; set; }
 		[CsvColumn(Name = "First Name", FieldIndex = 2)]

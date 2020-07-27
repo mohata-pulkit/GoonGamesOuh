@@ -8,10 +8,10 @@ using LINQtoCSV;
 
 namespace GoonGamesOuh.Data.Readers
 {
-    public class UserReader
-    {
-        public static UserClass getUser(int input)
-        {
+	public class UserReader
+	{
+		public static UserClass getUser(int input)
+		{
 			CsvFileDescription inputFileDescription = new CsvFileDescription
 			{
 				SeparatorChar = ',',
@@ -29,7 +29,7 @@ namespace GoonGamesOuh.Data.Readers
 			return null;
 		}
 		public static int getMaxUsers()
-        {
+		{
 			CsvFileDescription inputFileDescription = new CsvFileDescription
 			{
 				SeparatorChar = ',',
@@ -52,9 +52,9 @@ namespace GoonGamesOuh.Data.Readers
 			IEnumerable<UserClass> users = cc.Read<UserClass>("Data/Databases/UserDatabase.csv", inputFileDescription);
 			List<UserClass> solution = new List<UserClass>();
 			foreach(UserClass youser in users)
-            {
+			{
 				solution.Add(youser);
-            }
+			}
 			List<UserClass> lastSolution = solution.OrderBy(o => o.CurrentPoints).ToList();
 			lastSolution.Reverse();
 			return lastSolution;

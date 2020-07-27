@@ -1,0 +1,22 @@
+﻿@model GoonGamesOuh.Models.Rules;
+@{
+	ViewData["Title"] = "Rules";
+	if (Model.LoginStatus)
+	{
+		ViewData["LoginStatus"] = "Logout";
+	}
+	else
+	{
+		ViewData["LoginStatus"] = "Login/Register";
+	}
+}
+<div class="paper-screen">
+	<div class="paper-text">
+		@{ 
+            foreach(string rule in Model.rules)
+            {
+				<p>@Html.Raw(rule)</p>
+            }
+		}
+	</div>
+</div>

@@ -12,5 +12,6 @@ namespace GoonGamesOuh.Models
         public string Answer { get; set; }
         public string ConfirmationMessage { get; set; }
         public string HelpfulComments { get; set; }
+        public bool LoginStatus { get; set; }
     }
 }

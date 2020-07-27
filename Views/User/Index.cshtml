@@ -3,44 +3,53 @@
 *@
 @model GoonGamesOuh.Models.User;
 @{
-	ViewBag.Title = @"Register / Login";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = @"Register / Login";
+    if (Model.LoginStatus)
+    {
+        ViewData["LoginStatus"] = "Logout";
+    }
+    else
+    {
+        ViewData["LoginStatus"] = "Login/Register";
+    }
 }
 	<div class="digital-screen">
 		<div class="register">
 			<p class="user-heading">
 				REGISTER
 			</p>
-			@using (Html.BeginForm("Register", "User", FormMethod.Post))
-			{
-				<table class="register-form">
-					<tr class="register-form">
-						<td class="register-form">First Name</td>
-						<td class="register-form">@Html.TextBoxFor(input => input.FirstName)</td>
-					</tr>
-					<tr class="register-form">
-						<td class="register-form">Last Name</td>
-						<td class="register-form">@Html.TextBoxFor(input => input.LastName)</td>
-					</tr>
-					<tr class="register-form">
-						<td class="register-form">Email ID</td>
-						<td class="register-form">@Html.TextBoxFor(input => input.EmailID)
-					</tr>
-					<tr class="register-form">
-						<td class="register-form">Discord Username</td>
-						<td class="register-form">@Html.TextBoxFor(input => input.DiscordUsername)</td>
-					</tr>
-					<tr class="register-form">
-						<td class="register-form">Password</td>
-						<td class="register-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
-					</tr>
-					<tr class="register-form">
-						<td class="register-form">
-							<button type="submit">Submit</button>
-						</td>
-					</tr>
-				</table>
-			}
+			@{
+				@using (Html.BeginForm("Register", "User", FormMethod.Post))
+		        {
+					<table class="register-form">
+						<tr class="register-form">
+							<td class="register-form">First Name</td>
+							<td class="register-form">@Html.TextBoxFor(input => input.FirstName)</td>
+						</tr>
+						<tr class="register-form">
+							<td class="register-form">Last Name</td>
+							<td class="register-form">@Html.TextBoxFor(input => input.LastName)</td>
+						</tr>
+						<tr class="register-form">
+							<td class="register-form">Email ID</td>
+							<td class="register-form">@Html.TextBoxFor(input => input.EmailID)
+						</tr>
+						<tr class="register-form">
+							<td class="register-form">Discord Username</td>
+							<td class="register-form">@Html.TextBoxFor(input => input.DiscordUsername)</td>
+						</tr>
+						<tr class="register-form">
+							<td class="register-form">Password</td>
+							<td class="register-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+						</tr>
+						<tr class="register-form">
+							<td class="register-form">
+								<button type="submit">Submit</button>
+							</td>
+						</tr>
+					</table>
+					}
+                }
 		</div>
 		<hr class="dashed-double" />
 		<div class="login">

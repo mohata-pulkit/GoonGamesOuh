@@ -9,5 +9,6 @@ namespace GoonGamesOuh.Models
     public class Home
     {
         public string Name { get; set; }
+        public bool LoginStatus { get; set; }
     }
 }

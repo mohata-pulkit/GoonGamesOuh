@@ -20,5 +20,6 @@ namespace GoonGamesOuh.Models
 		public string PasswordHash { get; set; }
 		public string IPAddress { get; set; }
 		public string ConfirmationMessage { get; set; }
+		public bool LoginStatus { get; set; }
 	}
 }

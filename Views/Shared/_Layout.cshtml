@@ -5,39 +5,50 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] | Goon Games</title>
 	<link rel="stylesheet" href="~/css/site.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="navbar-brand">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Goon Games</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="play" asp-action="question">Play</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="user" asp-action="index">Register/Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Leaderboard" asp-action="index">Leaderboard</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <div class="footertext">
-        &copy; 2020 - GoonGamesOuh
-    </div>
+	<nav class="navbar">
+		<div class="container">
+			<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="navbar-brand">
+						<a asp-area="" asp-controller="Home" asp-action="Index">Goon Games</a>
+					</li>
+					<li class="nav-item">
+						<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+					<li class="nav-item">
+						<a asp-area="" asp-controller="play" asp-action="question">Play</a>
+					</li>
+					<li class="nav-item">
+						@{
+							if (Convert.ToString(ViewData["LoginStatus"]) == "Login/Register")
+							{
+								<a asp-area="" asp-controller="user" asp-action="index">Login/Register</a>
+							}
+							else if (Convert.ToString(ViewData["LoginStatus"]) == "Logout")
+							{
+								<a asp-area="" asp-controller="user" asp-action="logout">Logout</a>
+							}
+						}
+
+					</li>
+					<li class="nav-item">
+						<a asp-area="" asp-controller="Leaderboard" asp-action="index">Leaderboard</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+	<div class="footertext">
+		&copy; 2020 - GoonGamesOuh
+	</div>
 </body>
 </html>

@@ -14,8 +14,8 @@ namespace GoonGamesOuh.Controllers
 		public static Shop shop = new Shop();
 		public ViewResult Index()
 		{
-			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
-			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = null;
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = null;
 			if (HttpContext.Session.GetString("User Number") == null)
 			{
 				shop.LoginStatus = false;

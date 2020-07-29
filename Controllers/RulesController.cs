@@ -13,9 +13,9 @@ namespace GoonGamesOuh.Controllers
 	{
 		public ViewResult Index()
 		{
-			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
-            GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
-			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = null;
+            GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = null;
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = null;
 			Rules ruler = new Rules();
 			List<string> rules = new List<string>();
 			int i = 0;

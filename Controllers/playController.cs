@@ -22,14 +22,14 @@ namespace GoonGamesOuh.Controllers
 		static int UNumber = new int();
 		public ActionResult Index()
         {
-			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
-			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = null;
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = null;
 			return RedirectToAction("Question");
         }
 		public ViewResult Question()
 		{
-			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
-			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = null;
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = null;
 			if (HttpContext.Session.GetInt32("User Number") != null)
 			{
 

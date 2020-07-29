@@ -20,8 +20,8 @@ namespace GoonGamesOuh.Controllers
 		public static User myUser = new User();
 		public ViewResult Index()
 		{
-			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
-			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = null;
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = null;
 			if (HttpContext.Session.GetString("User Number") == null)
 			{
 				myUser.LoginStatus = false;

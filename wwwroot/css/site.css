@@ -9,10 +9,10 @@ body {
 	background: url(../images/background-light.png);
 	background-size: auto cover;
 	background-position: bottom left;
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	color: #78512D;
 	margin: auto;
-	min-height: 100%;
+	height: 100%;
 }
 footer{
 	width:100%;
@@ -28,21 +28,38 @@ body::-webkit-scrollbar-thumb{
 }
 .navbar {
 	background-color: burlywood;
+	border-bottom: solid 5px #78512D;
 }
 .navbar-nav {
 	font-size: large;
 	list-style: none;
-	padding: 10px;
 	margin: auto;
 	display: flex;
 	vertical-align: bottom;
 	background-color: #C8A67A;
 	text-align: center;
 }
+.nav-item {
+	border: solid #78512D 2px;
+	margin: 10px;
+	padding: 0.5rem;
+	width: auto;
+	font-size:1.25rem;
+	vertical-align:auto;
+	height:2.5rem;
+}
+	.nav-item:hover {
+		background-color: #78512D;
+	}
+	.nav-item:hover a{
+		color: burlywood;
+	}
 .navbar-brand {
 	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
 	font-weight: 700;
-	font-size: larger;
+	font-size: 3rem;
 	vertical-align: middle;
 	background-color: #C8A67A;
 }
@@ -69,7 +86,8 @@ hr {
 }
 .footertext {
 	vertical-align: bottom;
-	width: 100%;
+	width: 100vw;
+	color:white;
 	line-height: 30px;
 	position: fixed;
 	left: 0;
@@ -79,20 +97,48 @@ hr {
 	margin: auto;
 	padding: 10px;
 	color: aquamarine;
+	vertical-align: middle;
+	height: 50vh;
 	text-align: center;
 	font-family: 'Fira Code', monospace;
-	border: 10px solid;
-	border-color: #78512D;
+	border: 50px solid transparent;
+	border-radius: 50px;
 	background-color: black;
-	width: 50%;
-	margin-top: 4rem;
+	width: 50vw;
+	margin-top: 5vh;
+	overflow-y: scroll;
+	border-image: url(../images/screen-border.png) 300 round;
+}
+.digital-screen::-webkit-scrollbar {
+	width: 0.5rem;
+}
+.digital-screen::-webkit-scrollbar-track {
+	background-color: black;
+}
+.digital-screen::-webkit-scrollbar-thumb {
+	background-color: aquamarine;
+}
+table.leaderboard-table{
+	border-collapse:collapse;
+	vertical-align:middle;
+	margin:auto;
 }
 input {
 	border:none;
-	border-bottom: dotted 1px aquamarine;
+	border-bottom: dashed 1px aquamarine;
 	background-color:black;
 	color:aquamarine;
 	font-family: 'Fira Code', monospace;
+}
+	input:hover{
+		border:none;
+		border-bottom: solid 1px aquamarine;
+	}
+.form-input{
+	width:40%;
+}
+.form-label {
+	width: 20%;
 }
 button{
 	border:dashed 1px aquamarine;
@@ -100,6 +146,14 @@ button{
 	color:aquamarine;
 	font-family: 'Fira Code', monospace;
 }
+	button:hover {
+		border: solid 1px aquamarine;
+	}
+	button:active {
+		border: solid 1px aquamarine;
+		background-color: aquamarine;
+		color: black;
+	}
 .question-number {
 	font-size: x-large;
 	font-weight: bold;
@@ -110,8 +164,12 @@ button{
 p.question-prompt{
 	word-wrap:break-word;
 }
+input.answer-input{
+	bottom:0;
+}
 .answer-result {
 	color: lime;
+	bottom: 0;
 	font-family: 'Fira Sans', sans-serif;
 }
 p.user-heading {
@@ -137,3 +195,68 @@ th.login-form, td.login-form {
 	padding: 10px;
 	border-color: aquamarine;
 }
+.paper-screen {
+	margin: auto ;
+	padding: 10px;
+	color: #414141;
+	height:50vh;
+	text-align: justify;
+	font-family: 'Architects Daughter',sans-serif;
+	border: 20px solid;
+	border-color: #78512D;
+	background-color: papayawhip;
+	width: 50vw;
+	margin-top: 5vh;
+	overflow-y:scroll;
+}
+.paper-text {
+	font-size: x-large;
+}
+.paper-screen::-webkit-scrollbar {
+	width: 0.5rem;
+}
+.paper-screen::-webkit-scrollbar-track {
+	background-color: papayawhip;
+}
+.paper-screen::-webkit-scrollbar-thumb {
+	background-color: #414141;
+}
+.shop-card{
+	border: 10px double aquamarine;
+	border-radius: 15px;
+	padding: 10px;
+	width: 30%;
+	height:75%;
+	margin:auto;
+}
+h1.shop-heading{
+	font-size: xx-large;
+	font-weight: bold;
+}
+.shop-prompt{
+	font-weight: bold;
+}
+.not-clickbait{
+	font-size: x-small;
+}
+a.shop-selection {
+	font-family: 'Fira Code', monospace;
+	color:black;
+	background-color:aquamarine;
+	width:10%;
+}
+a.skip-question {
+	font-family: 'Fira Code', monospace;
+	border: dashed 1px red;
+	color: red;
+	background-color: black;
+	width:25%;
+}
+	a.skip-question:hover {
+		border: solid 1px red;
+	}
+	a.skip-question:active {
+		border: solid 1px red;
+		color: black;
+		background-color: red;
+	}

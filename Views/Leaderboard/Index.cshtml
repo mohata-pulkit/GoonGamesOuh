@@ -13,41 +13,42 @@
     }
 }
 @model GoonGamesOuh.Models.Leaderboard
-
-<table class="digital-screen">
-    <tr>
-        <th class="leaderboard">
-            Position
-        </th>
-        <th class="leaderboard">
-            Name
-        </th>
-        <th class="leaderboard">
-            Current Question
-        </th>
-        <th class="leaderboard">
-            Current Points
-        </th>
-    </tr>
-    @{
-
-        for (int i = 0; i < GoonGamesOuh.Data.Readers.UserReader.getMaxUsers(); i = i + 1)
-        {
-            int k = i + 1;
+    <div class="digital-screen">
+        <table class="leaderboard-table">
             <tr>
-                <td class="leaderboard">
-                    @k
-                </td>
-                <td class="leaderboard">
-                    @Model.users[i].FirstName @Model.users[i].LastName
-                </td>
-                <td class="leaderboard">
-                    @Model.users[i].CurrentQuestion
-                </td>
-                <td class="leaderboard">
-                    @Model.users[i].CurrentPoints
-                </td>
+                <th class="leaderboard">
+                    Position
+                </th>
+                <th class="leaderboard">
+                    Name
+                </th>
+                <th class="leaderboard">
+                    Current Question
+                </th>
+                <th class="leaderboard">
+                    Current Points
+                </th>
             </tr>
-        }
-    }
-</table>
+            @{
+
+                for (int i = 0; i < GoonGamesOuh.Data.Readers.UserReader.getMaxUsers(); i = i + 1)
+                {
+                    int k = i + 1;
+                    <tr>
+                        <td class="leaderboard">
+                            @k
+                        </td>
+                        <td class="leaderboard">
+                            @Model.users[i].FirstName @Model.users[i].LastName
+                        </td>
+                        <td class="leaderboard">
+                            @Model.users[i].CurrentQuestion
+                        </td>
+                        <td class="leaderboard">
+                            @Model.users[i].CurrentPoints
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>

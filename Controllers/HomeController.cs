@@ -14,6 +14,9 @@ namespace GoonGamesOuh.Controllers
     {
         public ViewResult Index()
         {
+            GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
+            GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
+            GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
             Home home = new Home();
             home.Name = HttpContext.Session.GetString("Name");
             if (HttpContext.Session.GetString("User Number") == null)

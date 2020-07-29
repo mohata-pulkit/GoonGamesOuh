@@ -1,42 +1,47 @@
 ﻿@model GoonGamesOuh.Models.play;
 @{
-	ViewData["Title"] = "Question " + Model.Id;
-	if (Model.LoginStatus)
-	{
-		ViewData["LoginStatus"] = "Logout";
-	}
-	else
-	{
-		ViewData["LoginStatus"] = "Login/Register";
-	}
+    ViewData["Title"] = "Question " + Model.Id;
+    if (Model.LoginStatus)
+    {
+        ViewData["LoginStatus"] = "Logout";
+    }
+    else
+    {
+        ViewData["LoginStatus"] = "Login/Register";
+    }
 }
+<!-- @Model.HelpfulComments -->
 <div class="digital-screen">
-	<div class="question-number">
-		Question @Model.Id
-	</div>
-	<div class="question-prompt">
-		@{ 
-			foreach (string prompt in Model.Prompt)
-			{
-				<p class="question-prompt">
-					@Html.Raw(prompt)
-				</p>
-			}
-		}
-	</div>
-	<div class="answer-input">
-		@{if (Model.Id != 0)
-			{
-				@using (Html.BeginForm("QuestionChecked", "play", FormMethod.Post))
-				{
-					@Html.TextBoxFor(input => input.Answer)
-					<button type="submit">Submit</button>
-				}
-			}
-		 }
-	</div>
-	<div class="answer-result">
-		@Model.ConfirmationMessage
-	</div>
-	<!-- @Model.HelpfulComments -->
+    <div class="question-number">
+        Question @Model.Id
+    </div>
+    <div class="question-prompt">
+        @{
+            foreach (string prompt in Model.Prompt)
+            {
+                <p class="question-prompt">
+                    @Html.Raw(prompt)
+                </p>
+            }
+        }
+    </div>
+    <div class="answer-input">
+        @{if (Model.Id != 0)
+            {
+                @using (Html.BeginForm("QuestionChecked", "play", FormMethod.Post))
+                {
+                    @Html.TextBoxFor(input => input.Answer)
+                    <button type="submit">Submit</button>
+                }
+                <br />
+                <a class="skip-question" asp-controller="play" asp-action="SkipQuestion">
+                    Skip This Question?
+                </a>
+            }
+        }
+    </div>
+    <br />
+    <div class="answer-result">
+        @Model.ConfirmationMessage
+    </div>
 </div>

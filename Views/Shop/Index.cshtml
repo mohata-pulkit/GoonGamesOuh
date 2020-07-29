@@ -1,0 +1,39 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model GoonGamesOuh.Models.Shop;
+@{ ViewData["Title"] = @"Shop";
+	if (Model.LoginStatus)
+	{
+		ViewData["LoginStatus"] = "Logout";
+	}
+	else
+	{
+		ViewData["LoginStatus"] = "Login/Register";
+	} 
+}
+    <div class="digital-screen">
+        <div class="shop-card">
+            <h1 class="shop-heading">
+                Skip Card
+            </h1>
+            <p class="shop-prompt">
+                Buy Skip Card for 600 Points?
+            </p>
+            <p class="not-clickbait">
+                (NOT CLICKBAIT!!) (NOT SCAM!!) (NO SURVEY!!)
+            </p>
+            <p>
+                <a class="shop-selection" asp-controller="Shop" asp-action="AddSkipCard">
+                    Yes
+                </a>
+                <br />
+                <a class="shop-selection" asp-controller="Shop" asp-action="No">
+                    No
+                </a>
+            </p>
+        </div>
+        <p>
+            @Model.ConfirmationMessage
+        </p>
+    </div>

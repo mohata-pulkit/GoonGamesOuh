@@ -13,6 +13,9 @@ namespace GoonGamesOuh.Controllers
     {
         public ActionResult Index()
         {
+            GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
+            GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
+            GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
             Leaderboard leaderboard = new Leaderboard();
             leaderboard.users = UserReader.getAllUsersSorted();
             if (HttpContext.Session.GetString("User Number") == null)

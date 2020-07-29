@@ -28,5 +28,7 @@ namespace GoonGamesOuh.Data.Classes
 		public int CurrentPoints { get; set; }
 		[CsvColumn(Name = "Password Salt", FieldIndex = 10)]
 		public string PasswordSalt { get; set; }
+		[CsvColumn(Name = "Skip Card", FieldIndex = 11)]
+		public bool SkipCard { get; set; }
 	}
 }

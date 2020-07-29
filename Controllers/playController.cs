@@ -12,21 +12,27 @@ namespace GoonGamesOuh.Controllers
 {
 	public class playController : Controller
 	{
-		static play Solution = new play();
 
-		static UserClass user = new UserClass();
+		public static play Solution = new play();
 
-		static int id = new int();
+		public static UserClass user = new UserClass();
+
+		public static int id = new int();
 
 		static int UNumber = new int();
 		public ActionResult Index()
         {
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
 			return RedirectToAction("Question");
         }
 		public ViewResult Question()
 		{
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.UserController.myUser.ConfirmationMessage = "";
 			if (HttpContext.Session.GetInt32("User Number") != null)
 			{
+
 				UNumber = Convert.ToInt32(HttpContext.Session.GetInt32("User Number"));
 
 				user = UserReader.getUser(UNumber);
@@ -73,6 +79,21 @@ namespace GoonGamesOuh.Controllers
 			else
 			{
 				Solution.ConfirmationMessage = "Incorrect Answer :(";
+			}
+			return RedirectToAction("Question");
+		}
+		public RedirectToActionResult SkipQuestion()
+		{
+			string answer = QuestionReader.getQuestion(id).answer;
+
+			if (UserReader.getUser(UNumber).SkipCard == true)
+			{
+				UserWriter.skipQuestion(UNumber);
+				Solution.ConfirmationMessage = "Skipped :(";
+			}
+			else
+			{
+				Solution.ConfirmationMessage = "Please buy a Skip Card from the Shop Before Skipping";
 			}
 			return RedirectToAction("Question");
 		}

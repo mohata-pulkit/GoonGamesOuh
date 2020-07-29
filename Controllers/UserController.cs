@@ -20,10 +20,11 @@ namespace GoonGamesOuh.Controllers
 		public static User myUser = new User();
 		public ViewResult Index()
 		{
+			GoonGamesOuh.Controllers.playController.Solution.ConfirmationMessage = "";
+			GoonGamesOuh.Controllers.ShopController.shop.ConfirmationMessage = "";
 			if (HttpContext.Session.GetString("User Number") == null)
 			{
 				myUser.LoginStatus = false;
-				myUser.ConfirmationMessage = "";
 			}
 			else
 			{
@@ -36,7 +37,7 @@ namespace GoonGamesOuh.Controllers
 		{
 			if (user.Password == null || user.EmailID == null || user.DiscordUsername == null)
 			{
-				myUser.ConfirmationMessage = "Please Enter All Starred Fields";
+				myUser.ConfirmationMessage = "Please Enter All Fields";
 				return RedirectToAction("Index");
 			}
 			else
@@ -79,6 +80,7 @@ namespace GoonGamesOuh.Controllers
 				writeUser.PasswordSalt = salty;
 				writeUser.CurrentQuestion = 1;
 				writeUser.CurrentPoints = 0;
+				writeUser.SkipCard = false;
 				
 				UserWriter.addUser(writeUser);
 

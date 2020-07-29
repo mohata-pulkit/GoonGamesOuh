@@ -23,24 +23,24 @@
 		        {
 					<table class="register-form">
 						<tr class="register-form">
-							<td class="register-form">First Name</td>
-							<td class="register-form">@Html.TextBoxFor(input => input.FirstName)</td>
+							<td class="register-form form-label">First Name</td>
+							<td class="register-form form-input">@Html.TextBoxFor(input => input.FirstName)</td>
 						</tr>
 						<tr class="register-form">
-							<td class="register-form">Last Name</td>
-							<td class="register-form">@Html.TextBoxFor(input => input.LastName)</td>
+							<td class="register-form form-label">Last Name</td>
+							<td class="register-form form-input">@Html.TextBoxFor(input => input.LastName)</td>
 						</tr>
 						<tr class="register-form">
-							<td class="register-form">Email ID</td>
-							<td class="register-form">@Html.TextBoxFor(input => input.EmailID)
+							<td class="register-form form-label">Email ID</td>
+							<td class="register-form form-input">@Html.TextBoxFor(input => input.EmailID)</td>
 						</tr>
 						<tr class="register-form">
-							<td class="register-form">Discord Username</td>
-							<td class="register-form">@Html.TextBoxFor(input => input.DiscordUsername)</td>
+							<td class="register-form form-label">Discord Username</td>
+							<td class="register-form form-input">@Html.TextBoxFor(input => input.DiscordUsername)</td>
 						</tr>
 						<tr class="register-form">
-							<td class="register-form">Password</td>
-							<td class="register-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+							<td class="register-form form-label">Password</td>
+							<td class="register-form form-input">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", value = "Password" } })</td>
 						</tr>
 						<tr class="register-form">
 							<td class="register-form">
@@ -52,6 +52,8 @@
                 }
 		</div>
 		<hr class="dashed-double" />
+		@Model.ConfirmationMessage
+		<hr class="dashed-double" />
 		<div class="login">
 			<p class="user-heading">
 				LOGIN
@@ -60,12 +62,12 @@
 			{
 				<table class="login-form">
                     <tr class="login-form">
-                        <td class="login-form">Email ID</td>
-                        <td class="login-form">@Html.TextBoxFor(input => input.EmailID)</td>
+                        <td class="login-form form-label">Email ID</td>
+                        <td class="login-form form-input">@Html.TextBoxFor(input => input.EmailID)</td>
                     </tr>
                     <tr class="login-form">
-                        <td class="login-form">Password</td>
-                        <td class="login-form">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+                        <td class="login-form form-label">Password</td>
+                        <td class="login-form form-input">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
                     </tr>
                     <tr class="login-form">
                         <td class="login-form">
@@ -74,6 +76,5 @@
                     </tr>
 				</table>
 			}
-			@Model.ConfirmationMessage
 		</div>
 	</div>

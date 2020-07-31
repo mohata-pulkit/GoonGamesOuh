@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LinqToCsv" Version="1.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <Compile Remove="wwwroot\images\question\**" />
+    <Content Remove="wwwroot\images\question\**" />
+    <EmbeddedResource Remove="wwwroot\images\question\**" />
+    <None Remove="wwwroot\images\question\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\question\" />
+    <PackageReference Include="LinqToCsv" Version="1.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

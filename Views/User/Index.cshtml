@@ -13,8 +13,8 @@
         ViewData["LoginStatus"] = "Login/Register";
     }
 }
-	<div class="digital-screen">
-		<div class="register">
+	<div class="digital-screen crt">
+		<div class="register flicker">
 			<p class="user-heading">
 				REGISTER
 			</p>
@@ -40,11 +40,11 @@
 						</tr>
 						<tr class="register-form">
 							<td class="register-form form-label">Password</td>
-							<td class="register-form form-input">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", value = "Password" } })</td>
+							<td class="register-form form-input">@Html.PasswordFor(input => input.Password)</td>
 						</tr>
 						<tr class="register-form">
 							<td class="register-form">
-								<button type="submit">Submit</button>
+								<button class="crt" type="submit">Submit</button>
 							</td>
 						</tr>
 					</table>
@@ -54,7 +54,7 @@
 		<hr class="dashed-double" />
 		@Model.ConfirmationMessage
 		<hr class="dashed-double" />
-		<div class="login">
+		<div class="login flicker">
 			<p class="user-heading">
 				LOGIN
 			</p>
@@ -67,11 +67,11 @@
                     </tr>
                     <tr class="login-form">
                         <td class="login-form form-label">Password</td>
-                        <td class="login-form form-input">@Html.PasswordFor(input => input.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })</td>
+                        <td class="login-form form-input">@Html.PasswordFor(input => input.Password)</td>
                     </tr>
                     <tr class="login-form">
                         <td class="login-form">
-                            <button type="submit">Submit</button>
+                            <button class="crt" type="submit">Submit</button>
                         </td>
                     </tr>
 				</table>

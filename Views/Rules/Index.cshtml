@@ -12,11 +12,14 @@
 }
 <div class="paper-screen">
 	<div class="paper-text">
-		@{ 
-            foreach(string rule in Model.rules)
-            {
-				<p>@Html.Raw(rule)</p>
-            }
-		}
+        <ol>
+            @{
+                foreach (string rule in Model.rules)
+                {
+                    <li>@Html.Raw(rule)</li>
+					<hr />
+                } 
+			}
+        </ol>
 	</div>
 </div>
